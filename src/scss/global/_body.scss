@@ -50,7 +50,7 @@ body {
 
 /* Start Multilevel Slide Menu */
 .sf-slide-menu__menu {
-  @apply list-none transition-transform duration-300 ease-in-out;
+  @apply list-none transition-transform duration-300 ease-in-out ml-0 mb-0;
 
   &.is-active {
     @apply -translate-x-full;
@@ -98,7 +98,7 @@ body {
 /* End Multilevel Slide Menu */
 
 .sf-slide-menu-default {
-  @apply list-none;
+  @apply list-none m-0;
 
   li a {
     @apply inline-block w-full py-1.5 px-4 text-grey;
@@ -193,4 +193,8 @@ body {
       @apply block;
     }
   }
+}
+
+button {
+  @apply bg-transparent border-none;
 }

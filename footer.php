@@ -5,7 +5,7 @@
     <div class="mx-auto max-w-3xl pt-5 flex flex-wrap">
         <div class="p-2.5 w-full md:w-1/2 lg:w-[18.573%] order-4 lg:order-1">
             <h2 class="text-white text-[21px] font-acumin-wide font-black uppercase mb-6">Company</h2>
-            <ul class="list-none mb-5">
+            <ul class="list-none mb-5 ml-0">
                 <li class="relative">
                     <a href="https://saffordequipment.com/about-us/"
                        class="font-acumin font-light text-white py-[3px] text-lg hover:text-[#FFFFFFAB] leading-5 inline-block">About us
@@ -18,7 +18,7 @@
                 </li>
             </ul>
             <h4 class="font-acumin-wide font-black text-white uppercase mb-5 text-xl">Help</h4>
-            <ul class="list-none">
+            <ul class="list-none ml-0">
                 <li class="relative"><a href="https://saffordequipment.com/contact-us/" class="font-acumin font-light text-white py-[3px] text-lg hover:text-[#FFFFFFAB] leading-5 inline-block">Contact Us</a></li>
                 <li class="relative"><a href="https://saffordequipment.jotform.com/lina/financeapp" class="font-acumin font-light text-white py-[3px] text-lg hover:text-[#FFFFFFAB] leading-5 inline-block">Financing</a></li>
                 <li class="relative"><a href="https://saffordequipment.com/returns/" class="font-acumin font-light text-white py-[3px] text-lg hover:text-[#FFFFFFAB] leading-5 inline-block">Returns</a></li>
@@ -69,7 +69,7 @@
         </div>
         <div class="p-2.5 w-full md:w-1/2 lg:w-[34.293%] order-1 lg:order-4">
             <p class="text-white text-[16.5px] leading-8 font-acumin font-normal mb-8">Safford Equipment is an outdoor power equipment retail store located in Safford, Alabama. We serve both the residential and commercial customer looking for quality outdoor equipment by leading manufacturers. </p>
-            <ul class="pt-5">
+            <ul class="pt-5 list-none">
                 <li class="">
                     <a href="tel:8778722417"
                        class="text-base py-1.5 inline-block">

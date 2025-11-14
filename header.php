@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind CSS + Alpine.js + Webpack</title>
     <?php wp_head();?>
 </head>
-<body class="bg-gray-100">
+<body class="bg-white">
 <div class="fixed sf-sidebar-nav w-[400px] z-[999] bg-grey-300 top-0 bottom-0 h-full overflow-y-auto">
     <div class="p-[30px]">
         <div class="flex justify-end items-center mb-6">
-            <button class="button text-grey-400" id="sf-close-sidebar">
+            <button class="button text-grey-400 hover:bg-transparent p-0" id="sf-close-sidebar">
                 <i class="eicon-close !text-3xl"></i>
             </button>
         </div>
@@ -140,7 +139,7 @@
                     <div id="cartOverlay" class="fixed inset-0 scale-100 bg-black/25 hidden lg:hidden z-40 transition-all duration-400"></div>
                     <button
                         id="cartButton"
-                        class="flex items-center pl-10 pr-5 py-2.5 text-white lg:text-grey">
+                        class="flex items-center pl-10 pr-5 py-2.5 text-white lg:text-grey bg-transparent border-none hover:bg-transparent">
                         <span class="font-acumin font-bold text-15 text-white lg:text-grey mr-1 hidden lg:block">$849.78</span>
                         <span class="relative text-white lg:text-grey leading-5">
                 <i class="text-lg leading-5 eicon-cart-medium"></i>
@@ -156,7 +155,7 @@
                             <div class="flex justify-end mb-5">
                                 <button
                                     id="closeButton"
-                                    class="text-4xl text-grey focus:outline-none">
+                                    class="text-4xl text-grey focus:outline-none bg-transparent hover:bg-transparent">
                                     &times;
                                 </button>
                             </div>
