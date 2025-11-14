@@ -1,0 +1,196 @@
+
+body {
+  @apply antialiased;
+}
+
+.sf-hamburger-icon {
+  @apply w-full bg-grey;
+  @apply rounded-sm;
+  @apply absolute;
+  @apply transition-transform duration-150 ease-linear;
+  @apply block top-1/2;
+  font-size: 13.1328px;
+  height: .3125em;
+
+  &::after,
+  &::before {
+    content: '';
+    @apply w-full bg-grey rounded-sm absolute;
+    transition-property: transform;
+    transition-duration: .15s;
+    transition-timing-function: ease;
+    height: .3125em;
+  }
+
+  &::before {
+    top: -.625em;
+  }
+
+  &::after {
+    bottom: -.625em;
+  }
+}
+.sf-hamburger.sf-hamburger-white .sf-hamburger-icon,
+.sf-hamburger.sf-hamburger-white .sf-hamburger-icon::before, 
+.sf-hamburger.sf-hamburger-white .sf-hamburger-icon::after {
+  @apply bg-white;
+}
+
+.sf-hamburger.active .sf-hamburger-icon::before {
+  transform: translate3d(-.5em, 0, 0) rotate(-45deg) scale(.7, 1);
+}
+
+.sf-hamburger.active .sf-hamburger-icon::after {
+  transform: translate3d(-.5em, 0, 0) rotate(45deg) scale(.7, 1);
+}
+
+.sf-hamburger-icon.sf-hamburger-icon-sm {
+  font-size: 10.62px;
+}
+
+/* Start Multilevel Slide Menu */
+.sf-slide-menu__menu {
+  @apply list-none transition-transform duration-300 ease-in-out;
+
+  &.is-active {
+    @apply -translate-x-full;
+  }
+}
+
+.sf-slide-menu__item {
+  @apply flex flex-row-reverse items-stretch;
+}
+
+.sf-slide-menu__item__link {
+  @apply px-3 py-1.5;
+  @apply text-base md:text-lg leading-[30px] md:leading-[33px] text-grey;
+  @apply font-normal font-acumin flex-grow inline-block;
+}
+
+.sf-slide-menu {
+  &__arrow {
+    @apply flex items-center cursor-pointer px-6 py-1.5;
+
+    .fa-angle-right,
+    .fa-angle-left {
+      @apply text-lg text-grey cursor-pointer w-[9px];
+    }
+  }
+
+  &__sub-menu {
+    @apply absolute top-0 left-full;
+    @apply opacity-0;
+    @apply transition-transform duration-300 ease-in-out;
+
+    &.active {
+      @apply opacity-100 w-full;
+    }
+  }
+
+  &__back {
+    @apply flex items-stretch cursor-pointer;
+  }
+}
+
+.sf-slide-menu-sub-item__link {
+  @apply grow;
+}
+/* End Multilevel Slide Menu */
+
+.sf-slide-menu-default {
+  @apply list-none;
+
+  li a {
+    @apply inline-block w-full py-1.5 px-4 text-grey;
+    @apply font-acumin font-normal text-base md:text-lg leading-[30px] md:leading-[33px];
+  }
+}
+
+.sf-sidebar-nav {
+  margin-left: -400px;
+  transform: translate(0, 0);
+  transition: transform 0.3s;
+  -webkit-backface-visibility: hidden;
+
+  &.active {
+    margin-left: -400px;
+    display: block;
+    transition-duration: 300ms;
+    transform: translate(400px, 0);
+  }
+}
+
+.sf-main-wrapper {
+  transform: translate(0, 0);
+  transition: transform 0.3s;
+  -webkit-backface-visibility: hidden;
+
+  &.active {
+    transition-duration: 300ms;
+    transform: translate(400px, 0);
+  }
+}
+
+#cartDropdown {
+  transition: 0.3s;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(100%);
+
+  &.active {
+    @apply opacity-100;
+    transform: translateX(0);
+  }
+
+  @screen lg {
+    @apply -z-10 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto;
+    @apply group-hover:overflow-visible group-hover:z-50;
+    transform: translateY(-10px);
+  }
+}
+
+
+.sf-product-item {
+  &-add-to-cart {
+    @apply hidden py-2.5 px-10 text-white bg-blue;
+    @apply font-acumin text-lg font-bold rounded-sm leading-6 hover:bg-grey-700;
+  }
+
+  &-price {
+    @apply text-grey text-lg;
+  }
+
+  &.list {
+    @apply flex flex-row w-full justify-start;
+
+    .sf-product-item-thumbnail {
+      @apply p-2.5 w-1/3;
+
+      img {
+        @apply mx-auto;
+      }
+    }
+
+    .sf-product-item-body {
+      @apply p-2.5 w-8/12;
+      @apply flex flex-col items-start;
+    }
+
+    .sf-product-item-price {
+      sup {
+        @apply text-lg top-0;
+      }
+    }
+
+    .sf-product-item-title {
+      @apply mb-5;
+
+      a {
+        @apply text-[22px] font-acumin font-semibold text-blue leading-4 hover:text-grey-700;
+      }
+    }
+    .sf-product-item-add-to-cart {
+      @apply block;
+    }
+  }
+}

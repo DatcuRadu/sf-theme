@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply antialiased;
+}
+
+.fa, .fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+.fa, .fas, .far, .fal, .fad, .fab {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.sf-hamburger-icon {
+  @apply w-full bg-grey;
+  @apply rounded-sm;
+  @apply absolute;
+  @apply transition-transform duration-150 ease-linear;
+  @apply block top-1/2;
+  font-size: 13.1328px;
+  height: .3125em;
+}
+.sf-hamburger-icon::before,
+.sf-hamburger-icon:after {
+  content: '';
+  @apply w-full bg-grey rounded-sm;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: .15s;
+  transition-timing-function: ease;
+  height: .3125em;
+}
+
+.sf-hamburger.sf-hamburger-white .sf-hamburger-icon,
+.sf-hamburger.sf-hamburger-white .sf-hamburger-icon::before, 
+.sf-hamburger.sf-hamburger-white .sf-hamburger-icon::after {
+  @apply bg-white;
+}
+
+.sf-hamburger-icon::before {
+  top: -.625em;
+}
+
+.sf-hamburger-icon::after {
+  bottom: -.625em;
+}
+
+.sf-hamburger.active .sf-hamburger-icon::before {
+  transform: translate3d(-.5em, 0, 0) rotate(-45deg) scale(.7, 1);
+}
+
+.sf-hamburger.active .sf-hamburger-icon::after {
+  transform: translate3d(-.5em, 0, 0) rotate(45deg) scale(.7, 1);
+}
+
+.sf-hamburger-icon.sf-hamburger-icon-sm {
+  font-size: 10.62px;
+}
+
+/* Start Multilevel Slide Menu */
+.sf-slide-menu__menu {
+  @apply list-none transition-transform duration-300 ease-in-out;
+}
+.sf-slide-menu__menu.is-active {
+  @apply -translate-x-full;
+}
+.sf-slide-menu__item {
+  @apply flex flex-row-reverse items-stretch;
+}
+
+.sf-slide-menu__item__link {
+  @apply px-3 py-1.5;
+  @apply text-base leading-[30px] text-grey;
+  @apply font-normal font-acumin flex-grow inline-block;
+}
+
+.sf-slide-menu__arrow {
+  @apply flex items-center cursor-pointer px-6 py-1.5;
+}
+
+.sf-slide-menu__arrow .svg-inline--fa {
+  @apply text-lg text-grey cursor-pointer w-[9px];
+}
+
+.sf-slide-menu__sub-menu {
+  @apply absolute top-0 left-full;
+  @apply opacity-0;
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.sf-slide-menu__sub-menu.active {
+  @apply opacity-100 w-full;
+}
+
+.sf-slide-menu__back {
+  @apply flex items-stretch cursor-pointer;
+}
+
+.sf-slide-menu-sub-item__link {
+  @apply grow;
+}
+/* End Multilevel Slide Menu */
+
+.sf-slide-menu-default {
+  @apply list-none;
+}
+.sf-slide-menu-default li a {
+  @apply inline-block w-full py-1.5 px-4 text-grey;
+  @apply font-acumin font-normal text-base leading-[30px];
+}
+.sf-sidebar-nav {
+  margin-left: -400px;
+  transform: translate(0, 0);
+  transition: transform .3s;
+  -webkit-backface-visibility: hidden;
+}
+.sf-sidebar-nav.active {
+  margin-left: -400px;
+  display: block;
+  transition-duration: 300ms;
+  transform: translate(400px, 0px);
+}
+.sf-main-wrapper {
+  transform: translate(0, 0);
+  transition: transform .3s;
+  -webkit-backface-visibility: hidden;
+}
+.sf-main-wrapper.active {
+  transition-duration: 300ms;
+  transform: translate(400px, 0px);
+}
