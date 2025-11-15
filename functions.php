@@ -2,12 +2,15 @@
 /**
  * Enqueue parent theme styles and custom assets.
  */
+
+require get_theme_file_path('/include/class-sf-mobile-walker.php');
+
 function saffordequipment_shop_enqueue_assets() {
 
     // 1. Storefront parent CSS
     wp_enqueue_style(
         'storefront-parent-style',
-        get_template_directory_uri() . '/style.css'
+        get_template_directory_uri() . '/styles.css'
     );
 
     // 2. Typekit fonts (Adobe)
@@ -50,6 +53,7 @@ function saffordequipment_shop_enqueue_assets() {
         );
     }
 }
+
 add_action( 'wp_enqueue_scripts', 'saffordequipment_shop_enqueue_assets' );
 
 

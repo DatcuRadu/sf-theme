@@ -15,101 +15,80 @@
             </button>
         </div>
         <div class="flex items-center mb-5 pt-2.5 px-2.5">
-            <div class="font-acumin text-2xl font-semibold text-grey">Howdy!</div>
-            <a class="underline px-[5px] text-[22.5px] leading-[42.5px] text-orange" href="/sign-in/">sign in</a>
+            <?php if ( is_user_logged_in() ) : ?>
+
+                <?php
+                $user = wp_get_current_user();
+                $name = trim( $user->first_name . ' ' . $user->last_name );
+                if (!$name) {
+                    $name = $user->display_name;
+                }
+                ?>
+
+                <div class="font-acumin text-2xl font-semibold text-grey">
+                    Hi, <?php echo esc_html($name); ?>
+                </div>
+
+                <a class="underline px-[5px] text-[22.5px] leading-[42.5px] text-orange"
+                   href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>">
+                    sign out
+                </a>
+
+            <?php else : ?>
+
+                <div class="font-acumin text-2xl font-semibold text-grey">
+                    Howdy!
+                </div>
+
+                <a class="underline px-[5px] text-[22.5px] leading-[42.5px] text-orange"
+                   href="/sign-in/">
+                    sign in
+                </a>
+
+            <?php endif; ?>
+
         </div>
         <h2 class="font-acumin-pro-condensed font-semibold text-[22px] leading-[37px] text-grey-700 mb-5 px-2.5">
             Shop by department
         </h2>
+
         <div class="mb-5 px-2.5">
             <div class="sf-slide-menu relative overflow-hidden">
-                <ul class="sf-slide-menu__menu">
-                    <li class="sf-slide-menu__item">
-              <span class="sf-slide-menu__arrow">
-                <i aria-hidden="true" class="fas fa-angle-right"></i>
-              </span>
-                        <a href="https://saffordequipment.com/bundles/"
-                           class="sf-slide-menu__item__link">
-                            Bundles
-                        </a>
-                        <ul class="sf-slide-menu__sub-menu">
-                            <li class="sf-slide-menu__back">
-                  <span class="sf-slide-menu__arrow">
-                    <i class="fa fa-angle-left"></i>
-                  </span>
-                                <a href="#" class="sf-slide-menu__item__link sf-slide-menu__sub-item__back">Back</a>
-                            </li>
-                            <li class="sf-slide-menu__item">
-                                <a href="/bundles/" class="sf-slide-menu__item__link sf-slide-menu-sub-item__link">Bundles Home</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sf-slide-menu__item">
-              <span class="sf-slide-menu__arrow">
-                <i aria-hidden="true" class="fas fa-angle-right"></i>
-              </span>
-                        <a href="https://saffordequipment.com/bundles/"
-                           class="sf-slide-menu__item__link">
-                            Lawn Care
-                        </a>
-                        <ul class="sf-slide-menu__sub-menu">
-                            <li class="sf-slide-menu__back">
-                  <span class="sf-slide-menu__arrow">
-                    <i class="fa fa-angle-left"></i>
-                  </span>
-                                <a href="#" class="sf-slide-menu__item__link sf-slide-menu__sub-item__back">Back</a>
-                            </li>
-                            <li class="sf-slide-menu__item">
-                                <a href="/bundles/" class="sf-slide-menu__item__link sf-slide-menu-sub-item__link">Lawn Care Home</a>
-                            </li>
-                            <li class="sf-slide-menu__item">
-                                <a href="/bundles/" class="sf-slide-menu__item__link sf-slide-menu-sub-item__link">Zero Turns</a>
-                            </li>
-                            <li class="sf-slide-menu__item">
-                                <a href="/bundles/" class="sf-slide-menu__item__link sf-slide-menu-sub-item__link">Lawn Tractors</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'shop_department_menu',
+                    'container'      => false,
+                    'menu_class'     => 'sf-slide-menu__menu',
+                    'walker'         => new  SF_Mobile_Walker()
+                ]);
+                ?>
             </div>
         </div>
         <h2 class="font-acumin-pro-condensed font-semibold text-[22px] leading-[37px] text-grey-700 mb-5 px-2.5">
             Help
         </h2>
         <div class="mb-5 px-2.5">
-            <ul class="sf-slide-menu-default">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54211">
-                    <a href="https://saffordequipment.com/contact-us/" class="menu-link">Contact Us</a>
-                </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54864">
-                    <a href="https://saffordequipment.com/my-account/" class="menu-link">My account</a>
-                </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60641">
-                    <a href="https://saffordequipment.com/delivery/" class="menu-link">Delivery Calculator</a>
-                </li>
-                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54633">
-                    <a href="https://saffordequipment.jotform.com/lina/financeapp" class="menu-link">Financing</a>
-                </li>
-            </ul>
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'help_menu',
+                'container'      => false,
+                'menu_class'     => 'sf-slide-menu-default',
+                'walker'         => new  SF_Mobile_Walker()
+            ]);
+            ?>
         </div>
         <h2 class="font-acumin-pro-condensed font-semibold text-[22px] leading-[37px] text-grey-700 mb-5 px-2.5">
             Company
         </h2>
         <div class="mb-5 px-2.5">
-            <ul class="sf-slide-menu-default">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54207 ee-menu__item">
-                    <a href="https://saffordequipment.com/about-us/" class="ee-menu__item__link menu-link">About us</a>
-                </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54208 ee-menu__item">
-                    <a href="https://saffordequipment.com/the-team/" class="ee-menu__item__link menu-link">The Team</a>
-                </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54209 ee-menu__item">
-                    <a href="https://saffordequipment.com/shipping/" class="ee-menu__item__link menu-link">Shipping</a>
-                </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54210 ee-menu__item">
-                    <a href="https://saffordequipment.com/returns/" class="ee-menu__item__link menu-link">Returns</a>
-                </li>
-            </ul>
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'company_menu',
+                'container'      => false,
+                'menu_class'     => 'sf-slide-menu-default',
+                'walker'         => new  SF_Mobile_Walker()
+            ]);
+            ?>
         </div>
     </div>
 </div>
