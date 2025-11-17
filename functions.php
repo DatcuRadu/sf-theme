@@ -5,6 +5,48 @@
 
 require get_theme_file_path('/include/class-sf-mobile-walker.php');
 
+
+function mytheme_setup() {
+
+    // Suport pentru titlu automat
+    add_theme_support( 'title-tag' );
+
+    // Suport pentru imagini
+    add_theme_support( 'post-thumbnails' );
+
+    // Suport WooCommerce
+    add_theme_support( 'woocommerce', [
+        'thumbnail_image_width' => 400,
+        'single_image_width'    => 800,
+        'product_grid' => [
+            'default_rows'    => 4,
+            'min_rows'        => 1,
+            'max_rows'        => 10,
+            'default_columns' => 4,
+            'min_columns'     => 1,
+            'max_columns'     => 6,
+        ],
+    ] );
+
+    // Gallery features
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
+
+    // Meniu-uri
+    register_nav_menus([
+        'main-menu'   => 'Main Menu',
+        'footer-menu' => 'Footer Menu',
+        'mobile-menu' => 'Mobile Menu',
+    ]);
+}
+add_action( 'after_setup_theme', 'mytheme_setup' );
+
+
+add_image_size( 'my-thumb-small', 150, 150, true );
+add_image_size( 'my-thumb-medium', 300, 300, true );
+add_image_size( 'my-hero', 1920, 600, true );
+
 function saffordequipment_shop_enqueue_assets() {
 
     // 1. Storefront parent CSS
