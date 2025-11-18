@@ -112,7 +112,9 @@
                     <a class="text-[15px] font-acumin font-medium text-white lg:text-grey hover:text-orange transition-all duration-200 ease-linear" href="https://saffordequipment.com/register/">Register</a>
                 </div>
 
+
                 <div class="relative group">
+
                     <!-- Cart Button -->
                     <!-- Overlay -->
                     <div id="cartOverlay" class="fixed inset-0 scale-100 bg-black/25 hidden lg:hidden z-40 transition-all duration-400"></div>
@@ -138,55 +140,9 @@
                                     &times;
                                 </button>
                             </div>
-                            <!-- Cart Items -->
-                            <ul class="p-0 m-0 divide-y divide-grey-450">
-                                <li class="flex items-center p-0">
-                                    <img src="https://equipment-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/10/04093608/PHOTO-2024-09-20-10-46-54-4-247x463.jpg" alt="Product Image" class="w-16 h-16 object-contain object-center">
-                                    <div class="ml-1.5 flex-1 py-2">
-                                        <div class="flex">
-                                            <a href="https://saffordequipment.com/product/viper-12-hd-auger-bit-42-tall-vaa-1242-00/"
-                                               class="text-blue font-bold font-acumin text-sm hover:text-grey-700">Viper 12" HD Auger Bit 42" Tall #VAA-1242-00</a>
-                                            <a href="#" class="size-6 ml-0.5 flex-none flex justify-center items-center border border-orange text-orange rounded-full font-bold">
-                                                <span class="text-lg leading-[21px] relative bottom-px">&times;</span>
-                                            </a>
-                                        </div>
-                                        <p class="text-sm font-acumin font-normal text-grey">1 &times; $0.78</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-center p-0">
-                                    <img src="https://equipment-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2022/10/10074702/92039-0751-247x247.jpg" alt="Product Image" class="w-16 h-16 object-contain object-center">
-                                    <div class="ml-1.5 flex-1 py-2">
-                                        <div class="flex">
-                                            <a href="https://saffordequipment.com/product/viper-12-hd-auger-bit-42-tall-vaa-1242-00/"
-                                               class="text-blue font-bold font-acumin text-sm hover:text-grey-700">Kawasaki Guard Rivet OEM #92039-0751</a>
-                                            <a href="#" class="size-6 ml-0.5 flex-none flex justify-center items-center border border-orange text-orange rounded-full font-bold">
-                                                <span class="text-lg leading-[21px] relative bottom-px">&times;</span>
-                                            </a>
-                                        </div>
-                                        <p class="text-sm font-acumin font-normal text-grey">1 &times; $0.78</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-center p-0">
-                                    <img src="https://equipment-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2023/05/03113811/718009-247x247.png" alt="Product Image" class="w-16 h-16 object-contain object-center">
-                                    <div class="ml-1.5 flex-1 py-2">
-                                        <div class="flex">
-                                            <a href="https://saffordequipment.com/product/viper-12-hd-auger-bit-42-tall-vaa-1242-00/"
-                                               class="text-blue font-bold font-acumin text-sm hover:text-grey-700">Ariens/Gravely IKON/ZTX 42" Powered Bagger Conversion Kit OEM #718009</a>
-                                            <a href="#" class="size-6 ml-0.5 flex-none flex justify-center items-center border border-orange text-orange rounded-full font-bold">
-                                                <span class="text-lg leading-[21px] relative bottom-px">&times;</span>
-                                            </a>
-                                        </div>
-                                        <p class="text-sm font-acumin font-normal text-grey">1 &times; $0.78</p>
-                                    </div>
-                                </li>
-                                <!-- More items -->
-                            </ul>
-                            <p class="text-grey text-sm font-acumin font-normal"><strong>Subtotal:</strong> $849.78</p>
 
-                            <!-- Total and Checkout -->
-                            <a href="#" class="mt-7 inline-block w-full text-center bg-orange text-white text-sm py-2.5 rounded-[4px] font-acumin font-bold">
-                                View cart
-                            </a>
+                            <?php woocommerce_mini_cart(); ?>
+                            
                         </div>
                     </div>
 
