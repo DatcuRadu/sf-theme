@@ -20,6 +20,7 @@ module.exports = {
       },
       maxWidth: {
         '3xl': '1600px',
+        '8xl': '1600px',
       },
       fontFamily: {
         'hwt': 'hwt-slab-antique, sans-serif',
@@ -29,24 +30,30 @@ module.exports = {
       },
       
       colors: {
+        headline: '#26292B',
+        customDark: '#0F0E0E',
         grey: {
           DEFAULT: '#7a7a7a',
           darker: '#111111',
           headline: '#54595f',
           fa: '#FAFAFA',
           ead: '#AEADAD',
+          200: '#ebebeb',
           300: '#F0F0F0',
           400: '#BFB9B9',
           450: '#e2e2e2',
           500: '#474040',
           600: '#666666',
           700: '#3a3a3a',
+          800: '#777777',
+          900: '#101010'
         },
         blue:{
           DEFAULT: '#0274be',
         },
         orange: {
           DEFAULT: '#f95b0a',
+          highlight: '#F98D0A',
           100: '#F9990A',
           200: '#ED9E1B',
           300: '#E8632B',

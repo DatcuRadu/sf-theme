@@ -107,3 +107,101 @@ function saffordequipment_register_custom_menus() {
     ) );
 }
 add_action( 'after_setup_theme', 'saffordequipment_register_custom_menus' );
+
+/**
+ * WooCommerce After Single Product Summary - Custom order
+ */
+// Related Products
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 5 );
+
+// Product Tabs
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 15 );
+
+
+/**
+ * Reorder product data tabs
+ */
+add_filter( 'woocommerce_product_tabs', 'woo_reorder_tabs', 98 );
+function woo_reorder_tabs( $tabs ) {
+
+    if ( isset( $tabs['reviews'] ) ) {
+
+        if ( empty( $tabs['reviews']['title'] ) ) {
+            $tabs['reviews']['title'] = __( 'Reviews', 'woocommerce' );
+        }
+
+        if ( empty( $tabs['reviews']['callback'] ) ) {
+            $tabs['reviews']['callback'] = 'comments_template';
+        }
+
+        $tabs['reviews']['priority'] = 10;
+    }
+
+    if ( isset( $tabs['description'] ) ) {
+        $tabs['description']['priority'] = 5;
+    }
+
+    if ( isset( $tabs['additional_information'] ) ) {
+        $tabs['additional_information']['priority'] = 15;
+    }
+
+    return $tabs;
+}
+
+add_action( 'woocommerce_single_product_summary', function() {
+    $content = do_shortcode('[smessages type="Shipping"]');
+    if ( $content ) {
+        echo '<div class="shipping-message-wrapper">' . $content . '</div>';
+    }
+}, 11 );
+
+add_action( 'woocommerce_single_product_summary', function() {
+    $content = do_shortcode('[smessages type="Noshipping"]');
+    if ( $content ) {
+        echo '<div class="shipping-message-wrapper">' . $content . '</div>';
+    }
+}, 12 );
+
+add_shortcode( 'map_price', 'map_price' );
+function map_price(  ) {
+    global $product;
+    if (class_exists('WC_Product_Bundle')) {
+        if (is_a($product, 'WC_Product_Bundle') ) {
+            $bundled_items = $product->get_bundled_items();
+            $bundled_item = array_shift($bundled_items);
+            $regular_price = $bundled_item->product->get_regular_price( 'edit' ) ?? $bundled_item->product->get_price( 'edit' );
+            $calculetd_price = WC_PB_Product_Prices::get_product_price(
+                $bundled_item->product,
+                array(
+                    'price' => $regular_price,
+                    'qty'   => $bundled_item->get_quantity(),
+                    'calc'  => '',
+                )
+            );
+            echo sprintf( __( '<div class="budeled_map_price">%s map price:  %s</div>', 'safford-equipment' ), $bundled_item->get_title() , wc_price($calculetd_price) );
+        }
+    }
+}
+
+add_shortcode('discontinued', 'discontinued');
+function discontinued()
+{
+    if (function_exists('dp_alt_products')) {
+        if (dp_is_discontinued()) {
+            ob_start();
+            dp_alt_products();
+            $content = ob_get_clean();
+            printf('<div class="discontinued_wrapper">%s</div>', $content);
+        }
+
+    }
+}
+
+add_action( 'woocommerce_single_product_summary', function() {
+    $content = do_shortcode('[discontinued]');
+    if ( $content ) {
+        echo  $content;
+    }
+}, 13 );
