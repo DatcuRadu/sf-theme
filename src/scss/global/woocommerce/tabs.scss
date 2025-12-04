@@ -1,0 +1,98 @@
+.woocommerce-tabs.sf-woocommerce-tabs {
+  ul.wc-tabs {
+    @apply list-none w-full float-none mr-0 border-t-0 mb-0;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+
+    li {
+      a {
+        @apply py-2 px-5 font-acumin-wide text-base text-white font-bold focus:outline-none;
+        @apply hover:bg-orange;
+        background-color: #AAA8A8;
+      }
+
+      &.active {
+        a {
+          @apply bg-orange text-white;
+        }
+
+        &::after {
+          @apply hidden;
+        }
+      }
+    }
+  }
+
+  .panel {
+    @apply w-full float-none p-5;
+
+    h4 {
+      @apply mb-5 font-acumin font-bold text-3xl text-grey-700 mt-0;
+      letter-spacing: -0.4px;
+    }
+
+    h5 {
+      @apply font-acumin font-semibold text-[22px] mb-5;
+    }
+
+    ul {
+      @apply text-grey list-inside text-base font-acumin m-0;
+
+      li {
+        > ul {
+          @apply ml-6;
+        }
+      }
+    }
+
+    p {
+      @apply text-grey font-acumin;
+
+      a {
+        @apply text-grey hover:text-grey-700;
+      }
+    }
+
+    .bundled_product_attributes_title {
+      @apply text-grey-700 text-[28px] font-semibold;
+      @apply mt-0 mb-5;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  table.shop_attributes {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+
+    th {
+      @apply py-2 pl-3.5 pr-2 text-grey text-base font-acumin font-bold bg-transparent;
+      width: 150px;
+      border-left: 1px solid rgba(0, 0, 0, .1);
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    td {
+      @apply py-2 pl-3.5 pr-2 text-base text-grey font-acumin;
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      border-right: 1px solid rgba(0, 0, 0, .1);
+      border-left: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    a {
+      @apply text-blue hover:text-grey-700 focus:text-grey-700;
+    }
+  }
+
+  .woocommerce-Reviews-title {
+    @apply mb-4 font-acumin-wide text-2xl font-normal text-grey-700;
+  }
+
+  .woocommerce-noreviews {
+    @apply bg-transparent border-none p-0 mb-7 text-grey font-acumin text-lg;
+  }
+
+  .woocommerce-verification-required {
+    @apply mb-7 text-grey font-acumin text-lg;
+  }
+}
+
+
+    
